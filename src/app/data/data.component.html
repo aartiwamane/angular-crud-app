@@ -1,0 +1,19 @@
+<h2>Employee List</h2>
+<ul>
+  <li *ngFor="let emp of employees">
+    {{ emp.name }} - {{ emp.position }} - {{ emp.department }}
+    <button (click)="editEmployee(emp)">Edit</button>
+    <button (click)="deleteEmployee(emp._id)">Delete</button>
+  </li>
+</ul>
+
+<h3 *ngIf="!isEditing">Add Employee</h3>
+<h3 *ngIf="isEditing">Edit Employee</h3>
+
+<input [(ngModel)]="newEmp.name" placeholder="name">
+<input [(ngModel)]="newEmp.position" placeholder="position">
+<input [(ngModel)]="newEmp.department" placeholder="department">
+
+<button *ngIf="!isEditing" (click)="addEmployee()">Add</button>
+<button *ngIf="isEditing" (click)="updateEmployee()">Update</button>
+<button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
