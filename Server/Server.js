@@ -4,9 +4,12 @@ const cors = require('cors')
 const employeeSchema = require('./employeeSchema')
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
+app.use(cors({
+  origin: '*'
+}));
 
 const Employee = mongoose.model('Employee', employeeSchema, 'Emp_Details');
 
@@ -64,9 +67,10 @@ app.get('/', (req, res) => {
 });
 
 // Start server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
+
 
 module.exports = app;
