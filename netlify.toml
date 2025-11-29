@@ -1,6 +1,6 @@
 [build]
   command = "npm install -g @angular/cli && npm install && ng build --configuration production"
-  publish = "dist/emp-data"
+  publish = "dist/emp-data/browser"
 
 [[redirects]]
   from = "/*"
