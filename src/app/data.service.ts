@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = 'http://localhost:3000/Employee';
+  private apiUrl = 'https://employee-crud-backend-exj6.onrender.com/Employee';
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +23,7 @@ export class DataService {
   }
 
   updateEmployee(id: string, empData: any) {
-  return this.http.put(`http://localhost:3000/employees/${id}`, empData);
+  return this.http.put(`https://employee-crud-backend-exj6.onrender.com/employees/${id}`, empData);
 }
 
 }

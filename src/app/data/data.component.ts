@@ -13,7 +13,7 @@ export class DataComponent implements OnInit {
 
   isEditing = false;
   editEmpId: string | null = null;
-  private apiUrl = 'http://localhost:3000/Employee';
+  private apiUrl = 'https://employee-crud-backend-exj6.onrender.com/Employee';
 
   // Make http a class property by adding `private`
   constructor(private empService: DataService, private http: HttpClient) {}

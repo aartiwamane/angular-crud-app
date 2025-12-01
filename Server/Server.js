@@ -1,3 +1,5 @@
+
+// server.js
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -8,12 +10,15 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: '*'
+  origin: '*',
+   methods: "GET,POST,PUT,DELETE",
 }));
 
 const Employee = mongoose.model('Employee', employeeSchema, 'Emp_Details');
 
-mongoose.connect('mongodb+srv://aarti_wamane:Aarti2204@cluster0.ubalotp.mongodb.net/Employee_Info?retryWrites=true&w=majority&appName=Cluster0')
+const mongoURI = process.env.MONGODB_URI;
+
+mongoose.connect(mongoURI)
 .then(() => console.log("Mongodb Connected.."))
 .catch((err)=> console.log("Connection error",err))
 
