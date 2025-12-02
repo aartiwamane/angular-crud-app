@@ -7,8 +7,7 @@
     "build": "ng build --configuration production",
     "vercel-build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:Emp_Data": "node dist/emp-data/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
