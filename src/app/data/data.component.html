@@ -15,5 +15,5 @@
 <input [(ngModel)]="newEmp.department" placeholder="department">
 
 <button *ngIf="!isEditing" (click)="addEmployee()">Add</button>
-<button *ngIf="isEditing" (click)="updateEmployee()">Update</button>
+<button *ngIf="isEditing" (click)="updateEmployee(editEmpId)">Update</button>
 <button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
