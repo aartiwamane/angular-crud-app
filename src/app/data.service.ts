@@ -23,7 +23,7 @@ export class DataService {
   }
 
   updateEmployee(id: string, empData: any) {
-  return this.http.put(`${this.apiUrl}/${id}`, empData);
+  return this.http.put(`${this.apiUrl}/update/${id}`, empData);
 }
 
 }
