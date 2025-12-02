@@ -62,6 +62,7 @@ updateEmployee() {
     });
   }
 }
+
 cancelEdit() {
     this.isEditing = false;
     this.editEmpId = null;
