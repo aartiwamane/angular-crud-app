@@ -56,7 +56,7 @@ app.delete('/Employee/:id', async (req, res) => {
   }
 });
 
-app.put('/employees/:id', async (req, res) => {
+app.put('/Employee/:id', async (req, res) => {
   try {
     const updatedEmp = await Employee.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedEmp) return res.status(404).json({ message: 'Employee not found' });
