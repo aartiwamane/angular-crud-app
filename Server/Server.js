@@ -10,8 +10,9 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: '*',
-   methods: "GET,POST,PUT,DELETE",
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"]
 }));
 
 const Employee = mongoose.model('Employee', employeeSchema, 'Emp_Details');
@@ -58,18 +59,19 @@ app.delete('/Employee/:id', async (req, res) => {
 
 app.put('/Employee/:id', async (req, res) => {
   try {
-    const updatedEmp = await Employee.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body },
-      { new: true }
-    );
+    const { id } = req.params; // ensure correct type
+    const update = { name: req.body.name, position: req.body.position, department: req.body.department };
+
+    const updatedEmp = await Employee.findByIdAndUpdate(id, update, { new: true, runValidators: true });
 
     if (!updatedEmp) return res.status(404).json({ message: 'Employee not found' });
     res.json(updatedEmp);
   } catch (err) {
+    console.error("Update Error:", err);
     res.status(500).json({ error: err.message });
   }
 });
+
 
 
 // Sample route
