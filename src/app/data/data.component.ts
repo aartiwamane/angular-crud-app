@@ -52,9 +52,9 @@ export class DataComponent implements OnInit {
   this.newEmp = { name: emp.name, position: emp.position, department: emp.department };
 }
 
-updateEmployee(id: string | null) {
-  if (id) {
-    this.empService.updateEmployee(id, this.newEmp).subscribe(() => {
+updateEmployee() {
+  if (this.editEmpId) {
+    this.empService.updateEmployee(this.editEmpId, this.newEmp).subscribe(() => {
       this.getEmployees();
       this.isEditing = false;
       this.editEmpId = null;
