@@ -1,8 +1,5 @@
 {
-  "builds": [
-    { "src": "angular.json", "use": "@vercel/static-build" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/dist/emp-data/browser/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/dist/emp-data/browser/index.html" }
   ]
 }
