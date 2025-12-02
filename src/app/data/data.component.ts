@@ -13,7 +13,7 @@ export class DataComponent implements OnInit {
 
   isEditing = false;
   editEmpId: string | null = null;
-  private apiUrl = 'https://employee-crud-backend-exj6.onrender.com/employee';
+  private apiUrl = 'https://employee-crud-backend-exj6.onrender.com/Employee';
 
   // Make http a class property by adding `private`
   constructor(private empService: DataService, private http: HttpClient) {}
@@ -52,9 +52,9 @@ export class DataComponent implements OnInit {
   this.newEmp = { name: emp.name, position: emp.position, department: emp.department };
 }
 
-updateEmployee() {
-  if (this.editEmpId) {
-    this.empService.updateEmployee(this.editEmpId, this.newEmp).subscribe(() => {
+updateEmployee(id: string | null) {
+  if (id) {
+    this.empService.updateEmployee(id, this.newEmp).subscribe(() => {
       this.getEmployees();
       this.isEditing = false;
       this.editEmpId = null;
@@ -62,6 +62,7 @@ updateEmployee() {
     });
   }
 }
+
 
 cancelEdit() {
     this.isEditing = false;
