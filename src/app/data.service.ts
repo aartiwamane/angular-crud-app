@@ -23,7 +23,7 @@ export class DataService {
   }
 
   updateEmployee(id: string, empData: any) {
-  return this.http.put(`https://employee-crud-backend-exj6.onrender.com/employees/${id}`, empData);
+  return this.http.put(`${this.apiUrl}/${id}`, empData);
 }
 
 }
