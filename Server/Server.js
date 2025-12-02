@@ -58,13 +58,19 @@ app.delete('/Employee/:id', async (req, res) => {
 
 app.put('/Employee/:id', async (req, res) => {
   try {
-    const updatedEmp = await Employee.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedEmp = await Employee.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+
     if (!updatedEmp) return res.status(404).json({ message: 'Employee not found' });
     res.json(updatedEmp);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 // Sample route
 app.get('/', (req, res) => {
