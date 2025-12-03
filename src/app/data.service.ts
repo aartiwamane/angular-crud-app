@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = 'https://employee-crud-backend-exj6.onrender.com/Employee';
+  private apiUrl = 'https://employee-crud-backend-exj6.onrender.com/employee';
 
   constructor(private http: HttpClient) {}
 

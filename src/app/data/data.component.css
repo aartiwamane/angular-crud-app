@@ -1,0 +1,90 @@
+/* base container */
+.container {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  background: #0b0f19;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+/* Headings */
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #56a5ff;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 24px;
+  color: #a3bfff;
+  margin-top: 25px;
+}
+
+/* Table */
+.emp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.emp-table th, .emp-table td {
+  padding: 14px;
+  border-bottom: 1px solid #2d3a55;
+}
+
+.emp-table th {
+  background-color: #071426;
+  font-weight: 600;
+  color: #6db8ff;
+}
+
+/* Button Styles */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: .3s;
+  margin-right: 6px;
+}
+
+/* specific button colors */
+.edit { background-color: #5d9bff; }
+.edit:hover { background-color: #3e7eee; }
+
+.delete { background-color: #ff4e4e; }
+.delete:hover { background-color: #e83939; }
+
+.add { background-color: #2dce6e; }
+.add:hover { background-color: #1aae55; }
+
+.update { background-color: #eab626; }
+.update:hover { background-color: #d1a019; }
+
+.cancel { background-color: #778899; }
+.cancel:hover { background-color: #5d6d79; }
+
+/* Form input fields */
+.form input {
+  width: 27%;
+  padding: 12px;
+  margin: 6px;
+  border-radius: 6px;
+  border: 1px solid #3b4c6b;
+  background-color: #131c2e;
+  color: white;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #56a5ff;
+  box-shadow: 0 0 5px #56a5ff;
+}

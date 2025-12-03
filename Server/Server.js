@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const Employee = require("./employeeSchema");
+const employeeSchema = require("./employeeSchema");
 
 const app = express();
 
@@ -20,8 +20,7 @@ app.use(cors({
   allowedHeaders: ["Content-Type"]
 }));
 
-const Employee = mongoose.model('Employee', employeeSchema, 'Emp_Details');
-
+const Employee = mongoose.models.Employee || mongoose.model('Employee', employeeSchema, 'Emp_Details');
 const mongoURI = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURI)
