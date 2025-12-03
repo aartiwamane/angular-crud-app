@@ -1,101 +1,84 @@
-/* Background of full page */
-:host {
-  display: block;
-  background: linear-gradient(145deg, #0a0f1d, #141e30, #0a1224);
+.page-wrapper {
   min-height: 100vh;
-  padding-top: 30px;
-}
-
-/* Base container */
-.container {
-  width: 80%;
-  margin: auto;
-  background: rgba(18, 27, 45, 0.92);
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.65);
+  padding: 25px;
+  background: linear-gradient(135deg, #1c1f4a, #3c0b75);
   color: white;
-  font-family: Poppins, sans-serif;
-  backdrop-filter: blur(6px);
 }
 
-/* Headings */
-.title {
-  text-align: center;
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #7cb4ff;
-  margin-bottom: 20px;
+/* Add Employee Section */
+.add-employee-container {
+  margin-bottom: 25px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
-.subtitle {
-  font-size: 24px;
-  color: #b4caff;
-  margin-top: 25px;
+.add-employee-container input {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 220px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.add-btn {
+  background: #16e278;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.add-btn:hover {
+  background: #0fcf65;
 }
 
 /* Table */
-.emp-table {
+.data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.emp-table th, .emp-table td {
-  padding: 14px;
-  border-bottom: 1px solid #2a3552;
-}
-
-.emp-table th {
-  background-color: #111a2e;
-  font-weight: 600;
-  color: #88b6ff;
-}
-
-/* Button Styles */
-.btn {
-  border: none;
-  border-radius: 7px;
-  padding: 8px 18px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: .3s;
-  margin-right: 6px;
-  font-weight: 500;
-  letter-spacing: .3px;
-}
-
-/* specific button colors (updated) */
-.edit { background-color: #5d9bff; }
-.edit:hover { background-color: #3e7eee; }
-
-/* 🔥 new purple delete button */
-.delete { background-color: #be5bff; }
-.delete:hover { background-color: #a545e6; }
-
-.add { background-color: #2dce6e; }
-.add:hover { background-color: #1aae55; }
-
-.update { background-color: #e8c44b; }
-.update:hover { background-color: #d1aa2c; }
-
-.cancel { background-color: #6b7a89; }
-.cancel:hover { background-color: #536270; }
-
-/* Form input fields */
-.form input {
-  width: 27%;
+.data-table th,
+.data-table td {
   padding: 12px;
-  margin: 6px;
-  border-radius: 7px;
-  border: 1px solid #35507a;
-  background-color: #0f1830;
-  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.form input:focus {
-  outline: none;
-  border-color: #78b0ff;
-  box-shadow: 0 0 5px #78b0ff;
+/* Buttons */
+.update-btn {
+  background: #5d39e4;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  margin-right: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.update-btn:hover {
+  background: #482fc7;
+}
+
+.delete-btn {
+  background: #d133d8;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.delete-btn:hover {
+  background: #b823be;
 }

@@ -1,37 +1,41 @@
-<div class="container">
-  <h2 class="title">Employee List</h2>
+<div class="employee-container">
+  <!-- Add / Edit Form (shown at top) -->
+  <div class="add-employee-container">
+    <h2 class="title">{{ isEditing ? 'Edit Employee' : 'Add Employee' }}</h2>
 
-  <table class="emp-table">
+    <!-- name/position/department bind to newEmp (same as your TS) -->
+    <input [(ngModel)]="newEmp.name" name="name" placeholder="Name" />
+    <input [(ngModel)]="newEmp.position" name="position" placeholder="Position" />
+    <input [(ngModel)]="newEmp.department" name="department" placeholder="Department" />
+
+    <button *ngIf="!isEditing" class="add-btn" (click)="addEmployee()">Add</button>
+    <button *ngIf="isEditing" class="update-btn" (click)="updateEmployee()">Update</button>
+    <button *ngIf="isEditing" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+  </div>
+
+  <!-- Employee List -->
+  <h2 class="title" style="margin-top:24px">Employee List</h2>
+
+  <table class="data-table" role="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Department</th>
-        <th>Actions</th>
+        <th style="text-align:left; padding:8px 12px">Name</th>
+        <th style="text-align:left; padding:8px 12px">Position</th>
+        <th style="text-align:left; padding:8px 12px">Department</th>
+        <th style="text-align:left; padding:8px 12px">Actions</th>
       </tr>
     </thead>
+
     <tbody>
       <tr *ngFor="let emp of employees">
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.position }}</td>
-        <td>{{ emp.department }}</td>
-        <td>
-          <button class="btn edit" (click)="editEmployee(emp)">Edit</button>
-          <button class="btn delete" (click)="deleteEmployee(emp._id)">Delete</button>
+        <td style="padding:10px 12px">{{ emp.name }}</td>
+        <td style="padding:10px 12px">{{ emp.position }}</td>
+        <td style="padding:10px 12px">{{ emp.department }}</td>
+        <td style="padding:10px 12px">
+          <button class="btn-edit" (click)="editEmployee(emp)">Edit</button>
+          <button class="btn-delete" (click)="deleteEmployee(emp._id)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <h3 class="subtitle">{{ isEditing ? 'Edit Employee' : 'Add Employee' }}</h3>
-
-  <div class="form">
-    <input [(ngModel)]="newEmp.name" placeholder="Name">
-    <input [(ngModel)]="newEmp.position" placeholder="Position">
-    <input [(ngModel)]="newEmp.department" placeholder="Department">
-
-    <button *ngIf="!isEditing" class="btn add" (click)="addEmployee()">Add</button>
-    <button *ngIf="isEditing" class="btn update" (click)="updateEmployee()">Update</button>
-    <button *ngIf="isEditing" class="btn cancel" (click)="cancelEdit()">Cancel</button>
-  </div>
 </div>
