@@ -23,7 +23,7 @@ mongoose.connect(mongoURI)
 .catch((err)=> console.log("Connection error",err))
 
 // GET all employees
-app.get('/Employee', async (req, res) => {
+app.get('/employee', async (req, res) => {
     try {
     const employees = await Employee.find();
     res.json(employees);
@@ -33,7 +33,7 @@ app.get('/Employee', async (req, res) => {
 });
 
 // POST a new employee
-app.post('/Employee', async (req, res) => { 
+app.post('/employee', async (req, res) => { 
   try {
     const newEmployee = new Employee(req.body);
     await newEmployee.save();
@@ -43,7 +43,7 @@ app.post('/Employee', async (req, res) => {
   }
 });
 // DELETE Employee by ID
-app.delete('/Employee/:id', async (req, res) => {
+app.delete('/employee/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const deletedEmployee = await Employee.findByIdAndDelete(id);
@@ -56,7 +56,7 @@ app.delete('/Employee/:id', async (req, res) => {
   }
 });
 
-app.put('/Employee/:id', async (req, res) => {
+app.put('/employee/:id', async (req, res) => {
   try {
     const { id } = req.params; // ensure correct type
     const update = { name: req.body.name, position: req.body.position, department: req.body.department };

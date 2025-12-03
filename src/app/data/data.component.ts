@@ -31,11 +31,12 @@ export class DataComponent implements OnInit {
 
   // Add Employee
   addEmployee(): void {
-    this.empService.addEmployee(this.newEmp).subscribe((response: any) => {
-      this.employees.push({ ...this.newEmp }); // Assuming backend returns the added employee
-      this.newEmp = { name: '', position: '', department: '' };
-    });
-  }
+  this.empService.addEmployee(this.newEmp).subscribe((response: any) => {
+    this.getEmployees();  // Always refresh correctly from DB
+    this.newEmp = { name: '', position: '', department: '' };
+  });
+}
+
 
   // Delete Employee using HttpClient directly
   deleteEmployee(id: string) {
