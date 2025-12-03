@@ -28,12 +28,18 @@ export class DataComponent implements OnInit {
     });
   }
   // Add Employee
-  addEmployee(): void {
-  this.empService.addEmployee(this.newEmp).subscribe((response: any) => {
-    this.getEmployees();  // Always refresh correctly from DB
+  addEmployee() {
+  if (!this.newEmp.name || !this.newEmp.position || !this.newEmp.department) {
+    alert("Please fill all fields before adding employee.");
+    return;
+  }
+
+  this.empService.addEmployee(this.newEmp).subscribe(() => {
+    this.getEmployees();
     this.newEmp = { name: '', position: '', department: '' };
   });
 }
+
   // Delete Employee using HttpClient directly
   deleteEmployee(id: string) {
     if (confirm('Are you sure you want to delete this employee?')) {

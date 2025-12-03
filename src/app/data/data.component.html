@@ -4,9 +4,9 @@
     <h2 class="title">{{ isEditing ? 'Edit Employee' : 'Add Employee' }}</h2>
 
     <!-- name/position/department bind to newEmp (same as your TS) -->
-    <input [(ngModel)]="newEmp.name" name="name" placeholder="Name" />
-    <input [(ngModel)]="newEmp.position" name="position" placeholder="Position" />
-    <input [(ngModel)]="newEmp.department" name="department" placeholder="Department" />
+    <input [(ngModel)]="newEmp.name" name="name" placeholder="Name" required/>
+    <input [(ngModel)]="newEmp.position" name="position" placeholder="Position" required/>
+    <input [(ngModel)]="newEmp.department" name="department" placeholder="Department" required />
 
     <button *ngIf="!isEditing" class="add-btn" (click)="addEmployee()">Add</button>
     <button *ngIf="isEditing" class="update-btn" (click)="updateEmployee()">Update</button>
