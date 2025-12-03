@@ -1,29 +1,37 @@
-/* base container */
+/* Background of full page */
+:host {
+  display: block;
+  background: linear-gradient(145deg, #0a0f1d, #141e30, #0a1224);
+  min-height: 100vh;
+  padding-top: 30px;
+}
+
+/* Base container */
 .container {
   width: 80%;
   margin: auto;
-  margin-top: 20px;
-  background: #0b0f19;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+  background: rgba(18, 27, 45, 0.92);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.65);
   color: white;
   font-family: Poppins, sans-serif;
+  backdrop-filter: blur(6px);
 }
 
 /* Headings */
 .title {
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #56a5ff;
+  color: #7cb4ff;
   margin-bottom: 20px;
 }
 
 .subtitle {
   font-size: 24px;
-  color: #a3bfff;
+  color: #b4caff;
   margin-top: 25px;
 }
 
@@ -31,60 +39,63 @@
 .emp-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .emp-table th, .emp-table td {
   padding: 14px;
-  border-bottom: 1px solid #2d3a55;
+  border-bottom: 1px solid #2a3552;
 }
 
 .emp-table th {
-  background-color: #071426;
+  background-color: #111a2e;
   font-weight: 600;
-  color: #6db8ff;
+  color: #88b6ff;
 }
 
 /* Button Styles */
 .btn {
   border: none;
-  border-radius: 6px;
-  padding: 7px 16px;
+  border-radius: 7px;
+  padding: 8px 18px;
   cursor: pointer;
   font-size: 14px;
   transition: .3s;
   margin-right: 6px;
+  font-weight: 500;
+  letter-spacing: .3px;
 }
 
-/* specific button colors */
+/* specific button colors (updated) */
 .edit { background-color: #5d9bff; }
 .edit:hover { background-color: #3e7eee; }
 
-.delete { background-color: #ff4e4e; }
-.delete:hover { background-color: #e83939; }
+/* 🔥 new purple delete button */
+.delete { background-color: #be5bff; }
+.delete:hover { background-color: #a545e6; }
 
 .add { background-color: #2dce6e; }
 .add:hover { background-color: #1aae55; }
 
-.update { background-color: #eab626; }
-.update:hover { background-color: #d1a019; }
+.update { background-color: #e8c44b; }
+.update:hover { background-color: #d1aa2c; }
 
-.cancel { background-color: #778899; }
-.cancel:hover { background-color: #5d6d79; }
+.cancel { background-color: #6b7a89; }
+.cancel:hover { background-color: #536270; }
 
 /* Form input fields */
 .form input {
   width: 27%;
   padding: 12px;
   margin: 6px;
-  border-radius: 6px;
-  border: 1px solid #3b4c6b;
-  background-color: #131c2e;
+  border-radius: 7px;
+  border: 1px solid #35507a;
+  background-color: #0f1830;
   color: white;
 }
 
 .form input:focus {
   outline: none;
-  border-color: #56a5ff;
-  box-shadow: 0 0 5px #56a5ff;
+  border-color: #78b0ff;
+  box-shadow: 0 0 5px #78b0ff;
 }
