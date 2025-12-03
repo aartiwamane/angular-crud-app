@@ -21,14 +21,12 @@ export class DataComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees();
   }
-
   // Fetch employees
   getEmployees() {
     this.empService.getEmployees().subscribe((data: any[]) => {
       this.employees = data;
     });
   }
-
   // Add Employee
   addEmployee(): void {
   this.empService.addEmployee(this.newEmp).subscribe((response: any) => {
@@ -36,8 +34,6 @@ export class DataComponent implements OnInit {
     this.newEmp = { name: '', position: '', department: '' };
   });
 }
-
-
   // Delete Employee using HttpClient directly
   deleteEmployee(id: string) {
     if (confirm('Are you sure you want to delete this employee?')) {
@@ -45,9 +41,7 @@ export class DataComponent implements OnInit {
         this.getEmployees(); // Refresh list after delete
       });
     }
-  }
-
-   
+  } 
 
 editEmployee(emp: any) {
   console.log('editEmployee clicked for:', emp);
@@ -55,24 +49,20 @@ editEmployee(emp: any) {
   // make sure id exists
   this.editEmpId = emp._id || emp.id || null;
   console.log('using editEmpId =', this.editEmpId);
-  this.newEmp = { name: emp.name, position: emp.position, department: emp.department };
+  this.newEmp = { ...emp };
 }
-
 updateEmployee() {
   if (!this.editEmpId) {
     console.error('No editEmpId set — cannot update');
     return;
   }
-
   const updatedData = {
     name: this.newEmp.name,
     position: this.newEmp.position,
     department: this.newEmp.department
   };
-
   console.log('Sending PUT to:', `${this.apiUrl}/${this.editEmpId}`);
   console.log('Payload:', updatedData);
-
   this.empService.updateEmployee(this.editEmpId, updatedData).subscribe(
     (res) => {
       console.log('Update success response:', res);
@@ -87,8 +77,6 @@ updateEmployee() {
     }
   );
 }
-
-
 cancelEdit() {
     this.isEditing = false;
     this.editEmpId = null;
