@@ -46,41 +46,45 @@ export class DataComponent implements OnInit {
     }
   }
 
-   editEmployee(emp: any) {
+   
+
+editEmployee(emp: any) {
+  console.log('editEmployee clicked for:', emp);
   this.isEditing = true;
-  this.editEmpId = emp._id;
+  // make sure id exists
+  this.editEmpId = emp._id || emp.id || null;
+  console.log('using editEmpId =', this.editEmpId);
   this.newEmp = { name: emp.name, position: emp.position, department: emp.department };
 }
 
 updateEmployee() {
-  if (this.editEmpId) {
-
-    const updatedData = {
-      name: this.newEmp.name,
-      position: this.newEmp.position,
-      department: this.newEmp.department
-    };
-
-    this.empService.updateEmployee(this.editEmpId, updatedData).subscribe(
-      (res) => {
-        console.log("Employee updated:", res);
-
-        this.getEmployees(); // refresh list
-        this.isEditing = false; // exit edit mode
-        this.editEmpId = null; // reset selected id
-
-        // reset form
-        this.newEmp = { 
-          name: '', 
-          position: '', 
-          department: '' 
-        };
-      },
-      (error) => {
-        console.error("Error updating employee:", error);
-      }
-    );
+  if (!this.editEmpId) {
+    console.error('No editEmpId set — cannot update');
+    return;
   }
+
+  const updatedData = {
+    name: this.newEmp.name,
+    position: this.newEmp.position,
+    department: this.newEmp.department
+  };
+
+  console.log('Sending PUT to:', `${this.apiUrl}/${this.editEmpId}`);
+  console.log('Payload:', updatedData);
+
+  this.empService.updateEmployee(this.editEmpId, updatedData).subscribe(
+    (res) => {
+      console.log('Update success response:', res);
+      this.getEmployees();
+      this.isEditing = false;
+      this.editEmpId = null;
+      this.newEmp = { name: '', position: '', department: '' };
+    },
+    (err) => {
+      console.error('Update error:', err);
+      alert('Update failed — check console for error');
+    }
+  );
 }
 
 

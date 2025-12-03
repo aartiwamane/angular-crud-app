@@ -23,7 +23,9 @@ export class DataService {
   }
 
   updateEmployee(id: string, empData: any) {
-  return this.http.put(`${this.apiUrl}/${id}`, empData);
+  console.log('DataService.updateEmployee called with id=', id, 'data=', empData);
+  return this.http.put(`${this.apiUrl}/${id}`, empData, { observe: 'response' });
 }
+
 
 }
