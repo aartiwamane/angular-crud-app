@@ -1,37 +1,34 @@
 <div class="container">
-  <h2 class="title">Employee List</h2>
+  <h2>Employee List</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
 
-  <table class="emp-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Department</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let emp of employees">
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.position }}</td>
-        <td>{{ emp.department }}</td>
-        <td>
-          <button class="btn edit" (click)="editEmployee(emp)">Edit</button>
-          <button class="btn delete" (click)="deleteEmployee(emp._id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.position }}</td>
+      <td>{{ emp.department }}</td>
+      <td>
+        <button class="edit-btn" (click)="editEmployee(emp)">Edit</button>
+        <button class="delete-btn" (click)="deleteEmployee(emp._id)">Delete</button>
+      </td>
+    </tr>
   </table>
 
-  <h3 class="subtitle">{{ isEditing ? 'Edit Employee' : 'Add Employee' }}</h3>
+  <h3 *ngIf="!isEditing">Add Employee</h3>
+  <h3 *ngIf="isEditing">Edit Employee</h3>
 
-  <div class="form">
-    <input [(ngModel)]="newEmp.name" placeholder="Name">
-    <input [(ngModel)]="newEmp.position" placeholder="Position">
-    <input [(ngModel)]="newEmp.department" placeholder="Department">
+  <form>
+    <input [(ngModel)]="newEmp.name" placeholder="name">
+    <input [(ngModel)]="newEmp.position" placeholder="position">
+    <input [(ngModel)]="newEmp.department" placeholder="department">
 
-    <button *ngIf="!isEditing" class="btn add" (click)="addEmployee()">Add</button>
-    <button *ngIf="isEditing" class="btn update" (click)="updateEmployee()">Update</button>
-    <button *ngIf="isEditing" class="btn cancel" (click)="cancelEdit()">Cancel</button>
-  </div>
+    <button *ngIf="!isEditing" (click)="addEmployee()">Add</button>
+    <button *ngIf="isEditing" (click)="updateEmployee()">Update</button>
+    <button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
+  </form>
 </div>
