@@ -1,109 +1,115 @@
 /* Full page background */
 body {
+  background: #0b0f19; /* rich navy */
   margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #06143b, #0b2765, #0e378b);
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-  color: white;
+  font-family: 'Poppins', sans-serif;
+  color: #e8ecf8;
 }
 
-/* Main container box */
+/* Employee container */
 .container {
-  width: 85%;
+  max-width: 900px;
   margin: 50px auto;
-  background: rgba(16, 32, 66, 0.85);
-  padding: 35px 40px;
-  border-radius: 14px;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #3a4d71, #4f6c97); /* lighter & premium */
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
 }
 
-/* Heading */
+/* Title */
 h2 {
   text-align: center;
   font-size: 32px;
   margin-bottom: 30px;
-  color: #69a7ff;
+  color: #8fbaff; /* Hotstar-ish pastel cyan */
+  font-weight: 700;
 }
 
 /* Table */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-spacing: 0 14px;
 }
 
 th {
-  color: #8ebaff;
+  color: #bed7ff;
+  padding-bottom: 10px;
   font-size: 18px;
-  padding-bottom: 12px;
 }
 
 td {
   padding: 14px 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 17px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 /* Buttons */
 button {
   border: none;
-  padding: 10px 18px;
+  padding: 8px 18px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.25s;
 }
 
-.edit-btn {
-  background-color: #4da3ff;
-  color: #ffffff;
-  margin-right: 8px;
+/* Blue Edit button */
+button.edit-btn {
+  background: #4ea8ff;
+  color: #07243a;
+}
+button.edit-btn:hover {
+  background: #79c2ff;
 }
 
-.delete-btn {
-  background-color: #c56bff;  /* Purple shade fixed */
-  color: #ffffff;
+/* Purple Delete button — lighter not too dark */
+button.delete-btn {
+  background: #c56bff;
+  color: #2d0047;
+}
+button.delete-btn:hover {
+  background: #d68cff;
 }
 
-.edit-btn:hover {
-  background-color: #2e7ed8;
+/* Add/Edit form section */
+.form-section {
+  margin-top: 45px;
+  text-align: center;
 }
 
-.delete-btn:hover {
-  background-color: #aa4de9;
-}
-
-/* Input section */
-form {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+.form-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #bed7ff;
 }
 
 input {
+  margin: 8px;
   padding: 12px;
-  border-radius: 6px;
-  border: none;
-  width: 210px;
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
+  width: 220px;
+  border-radius: 8px;
+  border: 1px solid #aac4ff;
+  background: #e7edff; /* 🔥 much lighter for contrast */
+}
+input:focus {
+  outline: none;
+  border: 2px solid #7bb3ff;
 }
 
-input::placeholder {
-  color: #c5d7ff;
+/* Add/Update/Cancel */
+button.add-btn, button.update-btn {
+  background: #4ea8ff;
+  color: #07243a;
+  margin: 12px;
+}
+button.add-btn:hover, button.update-btn:hover {
+  background: #79c2ff;
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-  table {
-    font-size: 14px;
-  }
-
-  form {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  input {
-    width: 100%;
-  }
+button.cancel-btn {
+  background: #ffa9a9;
+  color: #5a0000;
+}
+button.cancel-btn:hover {
+  background: #ffbebe;
 }

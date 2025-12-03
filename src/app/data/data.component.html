@@ -1,34 +1,32 @@
-<div class="container">
-  <h2>Employee List</h2>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Department</th>
-      <th>Actions</th>
-    </tr>
+<h2>Employee List</h2>
 
-    <tr *ngFor="let emp of employees">
-      <td>{{ emp.name }}</td>
-      <td>{{ emp.position }}</td>
-      <td>{{ emp.department }}</td>
-      <td>
-        <button class="edit-btn" (click)="editEmployee(emp)">Edit</button>
-        <button class="delete-btn" (click)="deleteEmployee(emp._id)">Delete</button>
-      </td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Department</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let emp of employees">
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.position }}</td>
+    <td>{{ emp.department }}</td>
+    <td>
+      <button class="edit-btn" (click)="editEmployee(emp)">Edit</button>
+      <button class="delete-btn" (click)="deleteEmployee(emp._id)">Delete</button>
+    </td>
+  </tr>
+</table>
 
-  <h3 *ngIf="!isEditing">Add Employee</h3>
-  <h3 *ngIf="isEditing">Edit Employee</h3>
+<div class="form-section">
+  <h3 class="form-title" *ngIf="!isEditing">Add Employee</h3>
+  <h3 class="form-title" *ngIf="isEditing">Edit Employee</h3>
 
-  <form>
-    <input [(ngModel)]="newEmp.name" placeholder="name">
-    <input [(ngModel)]="newEmp.position" placeholder="position">
-    <input [(ngModel)]="newEmp.department" placeholder="department">
+  <input [(ngModel)]="newEmp.name" placeholder="name">
+  <input [(ngModel)]="newEmp.position" placeholder="position">
+  <input [(ngModel)]="newEmp.department" placeholder="department">
 
-    <button *ngIf="!isEditing" (click)="addEmployee()">Add</button>
-    <button *ngIf="isEditing" (click)="updateEmployee()">Update</button>
-    <button *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
-  </form>
+  <button class="add-btn" *ngIf="!isEditing" (click)="addEmployee()">Add</button>
+  <button class="update-btn" *ngIf="isEditing" (click)="updateEmployee()">Update</button>
+  <button class="cancel-btn" *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
 </div>
