@@ -53,30 +53,37 @@ editEmployee(emp: any) {
 }
 updateEmployee() {
   if (!this.editEmpId) {
-    console.error('No editEmpId set — cannot update');
+    console.error("No editEmpId set");
     return;
   }
+
   const updatedData = {
     name: this.newEmp.name,
     position: this.newEmp.position,
     department: this.newEmp.department
   };
-  console.log('Sending PUT to:', `${this.apiUrl}/${this.editEmpId}`);
-  console.log('Payload:', updatedData);
-  this.empService.updateEmployee(this.editEmpId, updatedData).subscribe(
-    (res) => {
-      console.log('Update success response:', res);
-      this.getEmployees();
-      this.isEditing = false;
-      this.editEmpId = null;
-      this.newEmp = { name: '', position: '', department: '' };
-    },
-    (err) => {
-      console.error('Update error:', err);
-      alert('Update failed — check console for error');
-    }
-  );
+
+  console.log("Sending PUT:", updatedData);
+
+  this.empService.updateEmployee(this.editEmpId, updatedData)
+    .subscribe(
+      (res) => {
+        console.log("Update OK:", res);
+
+        this.getEmployees();
+        this.isEditing = false;
+        this.editEmpId = null;
+
+        // Reset AFTER API success
+        this.newEmp = { name: '', position: '', department: '' };
+      },
+      (err) => {
+        console.error("Update error:", err);
+        alert("Update failed — check console");
+      }
+    );
 }
+
 cancelEdit() {
     this.isEditing = false;
     this.editEmpId = null;
