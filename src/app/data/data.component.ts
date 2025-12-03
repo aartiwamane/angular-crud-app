@@ -54,12 +54,32 @@ export class DataComponent implements OnInit {
 
 updateEmployee() {
   if (this.editEmpId) {
-    this.empService.updateEmployee(this.editEmpId, this.newEmp).subscribe(() => {
-      this.getEmployees();
-      this.isEditing = false;
-      this.editEmpId = null;
-      this.newEmp = { name: '', position: '', department: '' };
-    });
+
+    const updatedData = {
+      name: this.newEmp.name,
+      position: this.newEmp.position,
+      department: this.newEmp.department
+    };
+
+    this.empService.updateEmployee(this.editEmpId, updatedData).subscribe(
+      (res) => {
+        console.log("Employee updated:", res);
+
+        this.getEmployees(); // refresh list
+        this.isEditing = false; // exit edit mode
+        this.editEmpId = null; // reset selected id
+
+        // reset form
+        this.newEmp = { 
+          name: '', 
+          position: '', 
+          department: '' 
+        };
+      },
+      (error) => {
+        console.error("Error updating employee:", error);
+      }
+    );
   }
 }
 
