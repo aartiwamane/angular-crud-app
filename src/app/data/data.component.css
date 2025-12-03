@@ -1,84 +1,140 @@
-.page-wrapper {
+/* Full page premium background */
+body, .employee-container {
+  background: linear-gradient(135deg, #0a043c, #2e0066);
   min-height: 100vh;
   padding: 25px;
-  background: linear-gradient(135deg, #1c1f4a, #3c0b75);
-  color: white;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
 }
 
-/* Add Employee Section */
+/* Glass-morphic add/edit form */
 .add-employee-container {
-  margin-bottom: 25px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+/* Headings */
+.title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* Input styling */
 .add-employee-container input {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  width: 31%;
+  margin: 5px;
   padding: 10px;
-  width: 220px;
   border-radius: 8px;
   border: none;
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
 }
 
-.add-btn {
-  background: #16e278;
-  padding: 10px 24px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.add-btn:hover {
-  background: #0fcf65;
-}
-
-/* Table */
+/* Table layout */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
+  margin-top: 12px;
 }
 
-.data-table th,
-.data-table td {
+.data-table thead tr {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transition: 0.3s;
+}
+
+.data-table th, .data-table td {
   padding: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
 }
 
-/* Buttons */
+/* 🔥 Premium Button Theme */
+.add-btn {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  padding: 10px 24px;
+  margin-top: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  opacity: 0.85;
+}
+
+/* Update button — neon violet */
 .update-btn {
-  background: #5d39e4;
+  background: linear-gradient(90deg, #A64BFF, #6102E8);
   border: none;
-  padding: 8px 18px;
-  border-radius: 8px;
-  margin-right: 6px;
+  padding: 10px 24px;
+  margin-top: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  color: white;
   font-weight: 600;
-  transition: 0.2s;
-}
-.update-btn:hover {
-  background: #482fc7;
 }
 
-.delete-btn {
-  background: #d133d8;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
+.update-btn:hover {
+  opacity: 0.85;
 }
-.delete-btn:hover {
-  background: #b823be;
+
+/* Cancel button — soft gray */
+.cancel-btn {
+  background: #888;
+  border: none;
+  padding: 10px 24px;
+  margin-top: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
+
+.cancel-btn:hover {
+  background: #777;
+}
+
+/* Edit button — blue theme */
+.btn-edit {
+  background: #00b2ff;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.btn-edit:hover {
+  background: #0097db;
+}
+
+/* Delete button — premium purple */
+.btn-delete {
+  background: #8e24aa;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-delete:hover {
+  background: #6d1b82;
 }
